@@ -1,0 +1,21 @@
+name: video_publisher
+description: 接收成片结果并等待人工确认
+
+trigger:
+  event: video_rendered
+
+tools:
+  - telegram_send
+  - telegram_listen
+  - file_write
+  - memory_write
+
+goal: 把成片交给人确认，再决定发布、退回或定时
+
+input:
+  - render-result.json
+  - preview.mp4
+
+output:
+  - publish-decision.md
+  - publish_status

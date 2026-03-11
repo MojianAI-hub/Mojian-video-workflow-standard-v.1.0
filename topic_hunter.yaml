@@ -1,0 +1,21 @@
+name: topic_hunter
+description: 扫描热点并输出候选选题
+
+trigger:
+  schedule: "每天固定时间"
+
+tools:
+  - web_search
+  - memory_read
+  - memory_write
+  - telegram_send
+
+goal: 给出 3 到 5 个可选题目
+
+input:
+  - 热点来源
+  - 历史选题记录
+
+output:
+  - candidate-topics.md
+  - topic_candidates

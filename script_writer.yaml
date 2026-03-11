@@ -1,0 +1,20 @@
+name: script_writer
+description: 根据已确认选题生成口播脚本
+
+trigger:
+  event: topic_confirmed
+
+tools:
+  - file_read
+  - file_write
+  - memory_read
+  - shell_exec
+
+goal: 输出一段适合短视频口播的脚本，并触发标准视频生成流程
+
+input:
+  - confirmed-topic.md
+
+output:
+  - script.md
+  - run-id
